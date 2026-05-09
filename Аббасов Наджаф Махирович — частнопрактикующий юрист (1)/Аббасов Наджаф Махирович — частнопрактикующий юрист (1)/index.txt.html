@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Аббасов Наджаф — Частная юридическая практика</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --surface: #fbf9f4;
+      --surface-dark: #10352f;
+      --surface-dark-2: #163f38;
+      --text: #1f2523;
+      --muted: #68706c;
+      --line: #e4ddd2;
+      --accent: #123a33;
+      --accent-2: #b89b5c;
+      --white: #ffffff;
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --shadow: 0 18px 50px rgba(31, 37, 35, 0.08);
+      --container: 1280px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--accent-2);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .section-head::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--accent-2);
+      display: inline-block;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 244, 238, 0.94);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: var(--accent);
+      color: var(--accent-2);
+      display: grid;
+      place-items: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      font-weight: 700;
+    }
+
+    .brand-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .brand-subtitle {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .nav a {
+      font-size: 15px;
+      font-weight: 600;
+      color: #3d4743;
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--accent);
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 28px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.55);
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 0 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      min-height: calc(100vh - 96px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-copy {
+      padding: 54px 40px 44px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      align-self: flex-start;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.56);
+      color: #5d6662;
+      font-weight: 600;
+      margin-bottom: 34px;
+    }
+
+    .hero-badge::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #72c7a2;
+      box-shadow: 0 0 0 4px rgba(114, 199, 162, 0.14);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(54px, 8vw, 88px);
+      line-height: 0.92;
+      font-weight: 500;
+      max-width: 760px;
+      margin-bottom: 26px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-meta {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #505954;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 34px;
+    }
+
+    .hero-divider {
+      width: 100%;
+      max-width: 920px;
+      height: 1px;
+      background: var(--line);
+      margin-bottom: 34px;
+    }
+
+    .hero-text {
+      max-width: 760px;
+      font-size: clamp(24px, 2vw, 28px);
+      line-height: 1.55;
+      color: #56605b;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+
+    .btn {
+      min-height: 74px;
+      padding: 0 38px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-outline {
+      border: 1px solid #283430;
+      color: #22302b;
+      background: transparent;
+    }
+
+    .btn-light {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.62);
+      color: #22302b;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 42px;
+      padding-top: 34px;
+      border-top: 1px solid var(--line);
+      color: #4a5550;
+    }
+
+    .hero-points span {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 18px;
+    }
+
+    .hero-points span::before {
+      content: "✓";
+      color: var(--accent-2);
+      font-weight: 700;
+    }
+
+    .hero-media {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+      background: #0f241f;
+      border-left: 1px solid var(--line);
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-status {
+      position: absolute;
+      left: 36px;
+      right: 36px;
+      bottom: 26px;
+      background: #103a31;
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 20px 28px;
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-status::before {
+      content: "•";
+      color: #67d2a0;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .service-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      padding-top: 48px;
+    }
+
+    .service-card {
+      padding: 38px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,0.24);
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-number {
+      color: var(--accent-2);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 32px;
+      margin-bottom: 28px;
+    }
+
+    .service-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(42px, 4vw, 58px);
+      line-height: 0.95;
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+
+    .service-list {
+      color: #55615b;
+      font-size: 22px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .service-list p + p {
+      margin-top: 8px;
+    }
+
+    .service-link {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 540px 1fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 760px;
+      object-fit: cover;
+      border-radius: 36px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-content h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(52px, 5vw, 78px);
+      line-height: 0.95;
+      font-weight: 500;
+      margin-bottom: 34px;
+      max-width: 760px;
+    }
+
+    .about-content p {
+      font-size: 22px;
+      line-height: 1.75;
+      color: #59635f;
+      max-width: 920px;
+    }
+
+    .about-content p + p {
+      margin-top: 28px;
+    }
+
+    .dark-section {
+      background: var(--surface-dark);
+      color: #edf0eb;
+    }
+
+    .dark-section .section-head {
+      color: #cab27d;
+    }
+
+    .dark-section .section-head::before {
+      background: #cab27d;
+    }
+
+    .dark-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .dark-card {
+      background: var(--surface-dark-2);
+      border: 1px solid rgba(232, 226, 210, 0.08);
+      border-radius: 32px;
+      padding: 34px 30px;
+      min-height: 540px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dark-card-icon {
+      width: 78px;
+      height: 78px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.05);
+      color: #c5aa6b;
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      margin-bottom: 34px;
+      border: 1px solid rgba(232, 226, 210, 0.08);
+    }
+
+    .dark-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      line-height: 1.05;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: #faf8f3;
+    }
+
+    .dark-card .intro {
+      color: rgba(237, 240, 235, 0.8);
+      font-size: 18px;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .dark-card hr {
+      border: none;
+      height: 1px;
+      background: rgba(232, 226, 210, 0.1);
+      margin-bottom: 24px;
+    }
+
+    .dark-card ul {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+      color: rgba(237, 240, 235, 0.8);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .dark-card li {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .dark-card li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #c5aa6b;
+    }
+
+    .light-hero {
+      padding-top: 92px;
+      padding-bottom: 68px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .light-hero h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(54px, 6vw, 86px);
+      line-height: 0.94;
+      font-weight: 500;
+      max-width: 920px;
+      margin-bottom: 26px;
+    }
+
+    .light-hero p {
+      max-width: 980px;
+      font-size: clamp(22px, 2vw, 28px);
+      color: #5a6460;
+      line-height: 1.7;
+    }
+
+    .contact {
+      padding: 96px 0 110px;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-box {
+      background: #113831;
+      color: #f8f6f1;
+      border-radius: 36px;
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-box h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 42px;
+      line-height: 1;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .contact-box p {
+      color: rgba(248, 246, 241, 0.78);
+      font-size: 18px;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .contact-actions .btn-outline,
+    .contact-actions .btn-light {
+      color: #f8f6f1;
+      border-color: rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .footer {
+      padding: 28px 0 42px;
+      color: #6a736e;
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 1180px) {
+      .nav {
+        gap: 22px;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .dark-grid,
+      .service-links,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy {
+        padding-right: 0;
+      }
+
+      .hero-media {
+        border-left: none;
+        border-top: 1px solid var(--line);
+        min-height: 560px;
+      }
+
+      .about-image img {
+        height: auto;
+        max-height: 760px;
+      }
+
+      .contact-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .header-inner {
+        flex-wrap: wrap;
+        padding: 18px 0;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        width: 100%;
+        order: 3;
+        gap: 18px;
+      }
+
+      .header-cta {
+        min-height: 48px;
+        padding: 0 22px;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-points {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .service-card,
+      .dark-card {
+        min-height: auto;
+      }
+
+      .hero-status {
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        padding: 16px 20px;
+        font-size: 16px;
+      }
+
+      .section,
+      .light-hero,
+      .contact {
+        padding-top: 72px;
+        padding-bottom: 72px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--container), calc(100% - 28px));
+      }
+
+      .brand {
+        gap: 12px;
+      }
+
+      .brand-mark {
+        width: 56px;
+        height: 56px;
+        font-size: 30px;
+      }
+
+      .brand-title {
+        font-size: 22px;
+      }
+
+      .hero-copy {
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+
+      .hero-text,
+      .about-content p,
+      .light-hero p,
+      .service-list {
+        font-size: 18px;
+      }
+
+      .service-card {
+        padding: 28px 22px;
+      }
+
+      .about-content h2,
+      .light-hero h2 {
+        margin-bottom: 22px;
+      }
+
+      .contact-box {
+        padding: 30px 22px;
+        border-radius: 28px;
+      }
+
+      .contact-box h3 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#hero" class="brand" aria-label="На главную">
+        <div class="brand-mark">A</div>
+        <div>
+          <div class="brand-title">Аббасов Наджаф</div>
+          <div class="brand-subtitle">Частная юридическая практика</div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="#about">Обо мне</a>
+        <a href="#persons">Физлицам</a>
+        <a href="#business">Бизнесу</a>
+        <a href="#process">Как работаем</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+
+      <a class="header-cta" href="#contact">Связаться</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="hero-badge">Волгоград · Онлайн по всей России</div>
+
+          <h1>
+            Частная <em>юридическая</em><br />
+            <em>практика</em> — по существу, до результата
+          </h1>
+
+          <div class="hero-meta">Аббасов Наджаф Махирович · Частнопрактикующий юрист</div>
+
+          <div class="hero-divider"></div>
+
+          <div class="hero-text">
+            Первичный разбор ситуации — в день обращения.<br />
+            Защита интересов физических лиц и бизнеса без формального подхода.
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Обсудить ситуацию</a>
+            <a class="btn btn-outline" href="tel:+79177248966">+7 917 724-89-66</a>
+            <a class="btn btn-light" href="https://t.me/" target="_blank" rel="noopener noreferrer">Telegram</a>
+          </div>
+
+          <div class="hero-points">
+            <span>Работаю очно в Волгограде и онлайн по России</span>
+            <span>Представительство в суде</span>
+            <span>Конфиденциально</span>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <img src="image-6.jpg" alt="Аббасов Наджаф" />
+          <div class="hero-status">На связи в будни и выходные</div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="service-links">
+          <a class="service-card" href="#persons">
+            <div>
+              <div class="service-number">01</div>
+              <h3>Физическим лицам</h3>
+              <div class="service-list">
+                <p>Правовая помощь в личных и имущественных вопросах — с вниманием к деталям и защитой ваших интересов.</p>
+                <p>Сопровождение частных правовых вопросов — с понятной стратегией действий.</p>
+                <p>Решение юридических вопросов физических лиц — с фокусом на результат.</p>
+              </div>
+            </div>
+            <div class="service-link">Перейти к направлениям →</div>
+          </a>
+
+          <a class="service-card" href="#business">
+            <div>
+              <div class="service-number">02</div>
+              <h3>Бизнесу</h3>
+              <div class="service-list">
+                <p>Юридическое сопровождение бизнеса: договорная работа, защита интересов и сокращение юридических рисков.</p>
+                <p>Персональные данные.</p>
+                <p>Сопровождение предпринимателей и компаний по ключевым правовым вопросам.</p>
+              </div>
+            </div>
+            <div class="service-link">Перейти к направлениям →</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="image-4.jpg" alt="Аббасов Наджаф Махирович" />
+        </div>
+
+        <div class="about-content">
+          <div class="section-head">Обо мне</div>
+
+          <h2>Юрист, к которому возвращаются — и рекомендуют близким</h2>
+
+          <p>
+            Аббасов Наджаф Махирович. Веду частную юридическую практику и сопровождаю физических лиц и бизнес по гражданским, договорным и иным правовым вопросам. Для доверителя это означает не просто консультацию, а понятную правовую позицию, честную оценку ситуации и сопровождение на каждом этапе.
+          </p>
+
+          <p>
+            Подхожу к каждому делу внимательно: разбираю ситуацию по существу, формулирую правовую стратегию и сопровождаю вопрос до результата. Объясняю простым языком, без канцелярита, и держу доверителя в курсе на каждом этапе.
+          </p>
+
+          <p>
+            Мой профессиональный опыт сформирован не только в частной практике, но и в рамках постоянной юридической работы с бизнес-задачами, договорным сопровождением, сокращением юридических рисков и вопросами, требующими точности, системности и внимательного анализа деталей. Такой опыт позволяет видеть ситуацию шире: оценивать не только правовую сторону вопроса, но и его практические риски, перспективы и наиболее эффективный способ защиты интересов доверителя.
+          </p>
+
+          <p>
+            Стоимость отдельных услуг рассчитываю индивидуально после знакомства с ситуацией — это честнее, чем фиксированный прайс «вслепую».
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="light-hero" id="persons">
+      <div class="container">
+        <div class="section-head">Физическим лицам</div>
+        <h2>С какими ситуациями ко мне обращаются</h2>
+        <p>
+          Юридическая помощь в ситуациях, где важно не упустить детали, верно оценить перспективы и выбрать рабочее решение. Помогаю разобраться в вопросе на консультации или беру его в полноценное сопровождение.
+        </p>
+      </div>
+    </section>
+
+    <section class="section dark-section">
+      <div class="container dark-grid">
+        <article class="dark-card">
+          <div class="dark-card-icon">◌</div>
+          <h3>Семья и дети</h3>
+          <div class="intro">
+            Когда нужно защитить интересы семьи или ребёнка, оформить отношения юридически или пройти развод спокойно.
+          </div>
+          <hr />
+          <ul>
+            <li>Брачные договоры и соглашения о разделе имущества</li>
+            <li>Расторжение брака, алименты, споры о детях</li>
+            <li>Определение места жительства ребёнка и порядка общения</li>
+            <li>Защита интересов в семейных конфликтах и переговорах</li>
+          </ul>
+        </article>
+
+        <article class="dark-card">
+          <div class="dark-card-icon">◫</div>
+          <h3>Наследство</h3>
+          <div class="intro">
+            Помогаю оформить наследственные права, восстановить сроки и защитить интересы при возникновении спора.
+          </div>
+          <hr />
+          <ul>
+            <li>Оформление наследства у нотариуса</li>
+            <li>Восстановление срока принятия наследства</li>
+            <li>Оспаривание долей и защита наследственных прав</li>
+            <li>Сопровождение судебных наследственных споров</li>
+          </ul>
+        </article>
+
+        <article class="dark-card">
+          <div class="dark-card-icon">⌂</div>
+          <h3>Жильё и недвижимость</h3>
+          <div class="intro">
+            Сопровождаю сделки, проверяю документы и защищаю интересы в спорах о недвижимости и коммунальных вопросах.
+          </div>
+          <hr />
+          <ul>
+            <li>Проверка документов перед сделкой</li>
+            <li>Сопровождение купли-продажи, дарения, аренды</li>
+            <li>Споры по квартире, дому, долям и пользованию имуществом</li>
+            <li>Коммунальные и жилищные конфликты</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="light-hero" id="business">
+      <div class="container">
+        <div class="section-head">Бизнесу</div>
+        <h2>Юридическое сопровождение бизнеса</h2>
+        <p>
+          Работаю с предпринимателями и компаниями по вопросам, где важны точность, системность и снижение правовых рисков в ежедневной деятельности.
+        </p>
+      </div>
+    </section>
+
+    <section class="section dark-section">
+      <div class="container dark-grid">
+        <article class="dark-card">
+          <div class="dark-card-icon">◫</div>
+          <h3>Регистрация и структурирование</h3>
+          <div class="intro">
+            Сопровождение корпоративных изменений и юридической структуры бизнеса.
+          </div>
+          <hr />
+          <ul>
+            <li>Создание юр лица</li>
+            <li>Изменения в ЕГРЮЛ</li>
+            <li>Реорганизация, слияние, присоединение</li>
+            <li>Ликвидация юр лица</li>
+          </ul>
+        </article>
+
+        <article class="dark-card">
+          <div class="dark-card-icon">⌘</div>
+          <h3>Договорная работа</h3>
+          <div class="intro">
+            Разработка, анализ и сопровождение договорной базы бизнеса с учётом рисков и задач компании.
+          </div>
+          <hr />
+          <ul>
+            <li>Разработка и анализ договоров: поставка, подряд, аренда, услуги</li>
+            <li>Внутренние документы: положения, регламенты</li>
+            <li>Претензионная работа</li>
+            <li>Взыскание дебиторской задолженности</li>
+            <li>Юридический аудит договорной базы</li>
+          </ul>
+        </article>
+
+        <article class="dark-card">
+          <div class="dark-card-icon">▣</div>
+          <h3>Корпоративное право</h3>
+          <div class="intro">
+            Правовая поддержка участников и руководителей бизнеса по корпоративным вопросам.
+          </div>
+          <hr />
+          <ul>
+            <li>Споры между учредителями</li>
+            <li>Решения собраний и протоколы</li>
+            <li>Ведение корпоративного реестра</li>
+            <li>Защита от недружественных действий</li>
+            <li>Уставы под специфику бизнеса</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head">Как работаем</div>
+        <div class="service-links">
+          <div class="service-card">
+            <div>
+              <div class="service-number">01</div>
+              <h3>Первичный разбор</h3>
+              <div class="service-list">
+                <p>Изучаю вашу ситуацию, документы и задачу. Определяю правовую перспективу и возможные варианты действий.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <div class="service-number">02</div>
+              <h3>Стратегия и сопровождение</h3>
+              <div class="service-list">
+                <p>Объясняю понятным языком, что делать дальше, и беру вопрос в работу: от переговоров и документов до представительства и защиты интересов.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">Вопросы</div>
+        <div class="service-links">
+          <div class="service-card">
+            <div>
+              <h3>Когда отвечаете?</h3>
+              <div class="service-list">
+                <p>Первичный разбор ситуации — в день обращения.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div>
+              <h3>Как проходит работа?</h3>
+              <div class="service-list">
+                <p>Очно в Волгограде и онлайн по России, в зависимости от вашей задачи и удобного формата взаимодействия.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h3>Связаться по вашему вопросу</h3>
+            <p>Опишите ситуацию удобным способом — отвечу и сориентирую по дальнейшим шагам.</p>
+          </div>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="tel:+79177248966">Позвонить</a>
+            <a class="btn btn-outline" href="https://t.me/" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Аббасов Наджаф Махирович · Частная юридическая практика
+    </div>
+  </footer>
+</body>
+</html>
